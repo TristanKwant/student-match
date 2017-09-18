@@ -1,0 +1,11 @@
+<% if current_user.admin  %>
+  <h1>ADMIN</h1>
+  <ul>
+
+    <% @users.each do |user|  %>
+      <li><%= user.email %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h1>student</h1>
+<% end %>
