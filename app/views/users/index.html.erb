@@ -1,8 +1,4 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-
-<% if current_user.try(:admin?)  %>
+<% if current_user.admin  %>
   <h1>ADMIN</h1>
   <ul>
 
@@ -11,5 +7,5 @@
     <% end %>
   </ul>
 <% else %>
-  <h1>niet ingelogd</h1>
+  <h1>student</h1>
 <% end %>
