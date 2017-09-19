@@ -3,6 +3,7 @@ class DaysController < ApplicationController
   def show
     @day = Day.find(params[:id])
     @days = Day.all
+
   end
 
   def new
@@ -10,20 +11,18 @@ class DaysController < ApplicationController
   end
 
   def create
-    @day = day.build(day_params)
+    @day = Day.new(day_params)
 
     if @day.save
       redirect_to @day, notice: "day created"
     else
-      render :show
+      render :new
     end
   end
 
   private
 
   def day_params
-    params
-      .require(:day)
-      .permit(:matchdate)
+    params.require(:day).permit(:matchdate, :datematch)
   end
 end
