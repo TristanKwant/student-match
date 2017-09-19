@@ -5,4 +5,19 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :matches
+
+
+
+
+  def sort
+    order(id: :desc)
+  end
+
+  def selected
+    if user.admin
+      "selected"
+    end
+
+  end
+
 end

@@ -1,4 +1,8 @@
-<h1>view match</h1>
+<% if current_user == @user.id  %>
+  <h1>yes</h1>
 
-
-<%#= link_to 'view match', current_user.match %> 
+  <h1>view match</h1>
+  <%= @user.email %> |
+<% else %>
+  <h1>No acces</h1>
+<% end %>
