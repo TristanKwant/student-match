@@ -9,16 +9,16 @@ class User < ApplicationRecord
 
 
 
-  def change_role
-    
-    # if admin == "admin"
-      @user.admin = true
-      @user.save
-    # end
-    # if admin != "admin"
-    #   @user.admin = false
-    #   @user.save
-    # end
-  end
+  # def change_role
+  #
+  #   # if admin == "admin"
+  #     @user.admin = true
+  #     @user.save
+  #   # end
+  #   # if admin != "admin"
+  #   #   @user.admin = false
+  #   #   @user.save
+  #   # end
+  # end
 
 end

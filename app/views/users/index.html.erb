@@ -3,9 +3,17 @@
   <ul>
 
     <% @users.each do |user|  %>
-      <li><%= user.email %> </li>
-      <%= user.admin %>
-      <%= link_to "make admin", user.change_role(params[user.id]) %>
+      <li ><%= user.email %>
+        <select id="<%="#{user.id}"%>" class="user" name:"user">
+          <option value="">select user</option>
+          <option value="true">admin</option>
+          <option value="false">student</option>
+        </select>
+        <p><%= user.admin %></p>
+      </li>
+
+
+
     <% end %>
   </ul>
 <% else %>
