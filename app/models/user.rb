@@ -13,11 +13,6 @@ class User < ApplicationRecord
     order(id: :desc)
   end
 
-  def selected
-    if user.admin
-      "selected"
-    end
-
-  end
+  
 
 end

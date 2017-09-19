@@ -15,20 +15,7 @@ class Api::UsersController < ApplicationController
     }.to_json
   end
 
-  # def create
-  #     user = User.new(room_params)
-  #
-  #     if room.save
-  #       render status: 201, json: {
-  #         message: "Room successfully created",
-  #         room: room
-  #       }.to_json
-  #     else
-  #       render status: 422, json: {
-  #         errors: room.errors
-  #       }.to_json
-  #     end
-  #   end
+  
 
   def update
       user = User.find(params[:id])
