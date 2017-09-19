@@ -9,16 +9,15 @@ class User < ApplicationRecord
 
 
 
-  # def change_role
-  #
-  #   # if admin == "admin"
-  #     @user.admin = true
-  #     @user.save
-  #   # end
-  #   # if admin != "admin"
-  #   #   @user.admin = false
-  #   #   @user.save
-  #   # end
-  # end
+  def sort
+    order(id: :desc)
+  end
+
+  def selected
+    if user.admin
+      "selected"
+    end
+
+  end
 
 end

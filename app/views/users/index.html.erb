@@ -2,14 +2,22 @@
   <h1>ADMIN</h1>
   <ul>
 
-    <% @users.each do |user|  %>
+    <% @users.sort.each do |user|  %>
       <li ><%= user.email %>
         <select id="<%="#{user.id}"%>" class="user" name:"user">
-          <option value="">select user</option>
-          <option value="true">admin</option>
-          <option value="false">student</option>
+
+          <% if user.admin %>
+              <option value="true">admin</option>
+              <option value="false">student</option>
+            <% else %>
+              <option value="false">student</option>
+              <option value="true">admin</option>
+          <% end %>
+
+
+
         </select>
-        <p><%= user.admin %></p>
+        <p><%#= user.admin %></p>
       </li>
 
 

@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   # get 'pages/home'
 
-  root to: 'matches#show'
+    root to: 'matches#show'
+  
 
   devise_for :users
 

@@ -12,7 +12,7 @@ xhr.send(JSON.stringify({admin:this.value}));
 
 
 var id = document.getElementById(this.id);
-var p = id.nextElementSibling.innerHTML = this.value;
+id.nextElementSibling.innerHTML = this.value;
 
 console.log(p)
 
