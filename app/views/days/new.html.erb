@@ -1,0 +1,12 @@
+<h1>new</h1>
+
+<%= form_for @day do |f| %>
+  <div class="form-group">
+    <%= f.label :datematch %>
+    <%= f.text_field :datematch, type: "date" %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit "make day", class: "btn btn-primary" %>
+  </div>
+<% end %>

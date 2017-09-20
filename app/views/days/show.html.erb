@@ -1,0 +1,20 @@
+<% if current_user.admin  %>
+<ul class="day-list">
+  <%= link_to "Add new day", new_day_path, class: "btn btn-primary" %>
+  <% @days.sort_lastest_date.each do |day|  %>
+    <li>
+      <%#= day.datematch %>
+      <%= link_to day.datematch, day, class: "btn btn-default" %>
+    </li>
+
+
+
+  <% end %>
+</ul>
+
+
+
+<h2><%= @day.datematch %></h2>
+<%else%>
+<h1>no acces</h1>
+<%end%>
