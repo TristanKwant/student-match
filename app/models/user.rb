@@ -5,4 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :matches
+
+
+
+
+  def sort
+    order(id: :desc)
+  end
+
+  
+
 end

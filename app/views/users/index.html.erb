@@ -1,9 +1,27 @@
 <% if current_user.admin  %>
-  <h1>ADMIN</h1>
+  <h1>Users</h1>
   <ul>
 
-    <% @users.each do |user|  %>
-      <li><%= user.email %></li>
+    <% @users.sort.each do |user|  %>
+      <li ><%= user.email %>
+        <select id="<%="#{user.id}"%>" class="user" name:"user">
+
+          <% if user.admin %>
+              <option value="true">admin</option>
+              <option value="false">student</option>
+            <% else %>
+              <option value="false">student</option>
+              <option value="true">admin</option>
+          <% end %>
+
+
+
+        </select>
+        <p><%#= user.admin %></p>
+      </li>
+
+
+
     <% end %>
   </ul>
 <% else %>

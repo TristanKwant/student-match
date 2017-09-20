@@ -1,3 +1,4 @@
+
 # class Match < ApplicationRecord
 
 # end
@@ -96,4 +97,5 @@ end
     store_match(user_id, index)
     puts "______"
   end
+
 end
