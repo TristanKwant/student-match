@@ -1,8 +1,8 @@
 <% if current_user.admin  %>
-<ul>
-
-  <% @days.sort.each do |day|  %>
-    <li >
+<ul class="day-list">
+  <%= link_to "Add new day", new_day_path, class: "btn btn-primary" %>
+  <% @days.sort_lastest_date.each do |day|  %>
+    <li>
       <%#= day.datematch %>
       <%= link_to day.datematch, day, class: "btn btn-default" %>
     </li>
@@ -11,7 +11,7 @@
 
   <% end %>
 </ul>
-<%= link_to "Add new day", new_day_path, class: "btn btn-primary" %>
+
 
 
 <h2><%= @day.datematch %></h2>
