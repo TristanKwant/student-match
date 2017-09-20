@@ -1,121 +1,99 @@
-class Match < ApplicationRecord
-  belongs_to :user
-
-
-  def is_student
-
-  end
-
-
-  def generate
-
-
-  end
-
-
-
-
-end
-
 # class Match < ApplicationRecord
-# class Match
-#     # belongs_to :user
-#     attr_accessor :user, :user_matches
-#
-#     def initialize(user_id)
-#       @user_id = user_id
-#       @user = user
-#
-#       @user_matches = []
-#
-#     end
-#
+
 # end
+
 @all_users = [
-{ name: 'user1', id: 1 },
-{ name: 'user2', id: 2 },
-{ name: 'user3', id: 3 },
-{ name: 'user4', id: 4 }
+{ name: 'user1', id: 1, history_matched_ids: [2, 3, 4] },
+{ name: 'user2', id: 2, history_matched_ids: [3, 1] },
+{ name: 'user3', id: 3, history_matched_ids: [4] },
+{ name: 'user4', id: 4, history_matched_ids: [1, 3] }
 ]
 
-@current_user = @all_users[0]
+# user_id = user[:id]
+# index = @all_users.index(user)
+@all_matches = []
 
-ADD ATTRIBUTE TO USER HISTORY ARRAY, OR ARRAY WITH HASHES, WITH DATE AND MATCH
+# id = (@all_users[0])[:id]
+# index = @all_users.index((@all_users[0]))
+# puts "this is your id: #{id}"
+# puts "this is your index: #{index}"
 
-
-def current_user_id
-    return @current_user[:id]
-end
-current_user_id
-
-@current_user_matches = [current_user_id]
-
-def other_user_ids
-  # get all other users id:
-  @all_user_ids =[]
+def get_all_user_ids
+  all_user_ids = []
   @all_users.each do |user|
-       @all_user_ids << user[:id]
+    all_user_ids << user[:id]
+  end
+  return all_user_ids
+end
+# print get_all_user_ids
+# puts "****"
+
+
+def remove_user_id_and_history(id, index)
+  get_all_user_ids
+  id_array = []
+  id_array << id
+
+  print id_array
+  puts "id array:"
+  user_matched_ids = []
+  user_matched_ids = (@all_users[index])[:history_matched_ids]
+
+  print user_matched_ids
+  puts "user matched ids"
+  user_id_removed = []
+  user_id_removed = get_all_user_ids - id_array
+
+  print user_id_removed
+  puts "user-id removed"
+
+  all_ids_removed = []
+  all_ids_removed = user_id_removed - user_matched_ids
+  print all_ids_removed
+  puts "all ids removed"
+  return all_ids_removed
+  # user_id_removed = user_id_removed - user_matched_ids
+end
+
+
+def create_match(id, index)
+  match = remove_user_id_and_history(id, index).sample
+  print match
+  puts "this is the id of the match"
+  match_index = @all_users.index(@all_users.find {|user| user["id"] = match })
+  print match_index
+  puts "this is the index af the match"
+  (@all_users[(index)])[:history_matched_ids] << match
+  (@all_users[(match_index)])[:history_matched_ids] << id
+  user_match = []
+  user_match << id << match
+  @all_matches << user_match
+
+  print user_match
+  puts " this will be your match"
+  print @all_matches
+  puts " this are all the matches"
+
+end
+
+def store_match(id, index)
+  if remove_user_id_and_history(id, index).empty?
+    (@all_users[index])[:history_matched_ids].clear
+    create_match(id, index)
+  else
+    create_match(id, index)
   end
 end
-other_user_ids
-
-def not_matched_ids
-  @not_matched_ids = @all_user_ids - @current_user_matches
-end
-not_matched_ids
 
 
-
-puts "current user id #{current_user_id}"
-puts "array with matches#{@current_user_matches}"
-puts "all_user_ids #{@all_user_ids}"
-puts "all none used ids #{@not_matched_ids}"
-
-if @not_matched_ids.empty?
-
-      puts "empty"# do somthing to cleae current user matches and start al over.
-
+@all_users.each do |user|
+  user_id = user[:id]
+  index = @all_users.index(user)
+  if @all_matches.flatten.include?(user_id)
+    puts "one"
+    next
   else
-    puts "this is the first one #{@not_matched_ids[0]}"
-    all_matches =[]
-    match = []
-    all_matches << match
-    match << @not_matched_ids[0] << current_user_id
-    puts "#{match}"
-    @not_matched_ids.shift
+    store_match(user_id, index)
+    puts "______"
+  end
 end
-# def match
-#   match =[]
-#   match << @not_matched_ids[0], current_user_id
-# end
-
-puts "new not matched ids array#{@not_matched_ids}"
-
-# def matched_user_id
-#   # this is where the magic happens
-# end
-#
-# loop do
-#   all_users.each do |user|
-#    user.each do |key, value|
-#      current_user_id != user[:id]
-#        current_user_matches << id
-#       break
-#     end
-#   end
-# end
-#
-# counter = 0
-# loop do
-#   while
-#   current_user_matches.each do |id|
-#     id != all_users[counter]
-#     current_user_matches << id
-#     break
-#   else
-#     counter +=1
-# end
-#
-# array1 = [1, 2, 3, 4]
-# array2 = [1, 2]
-#  array1-array2
