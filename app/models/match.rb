@@ -1,4 +1,5 @@
 
+
 class Match < ApplicationRecord
 
 
@@ -14,4 +15,5 @@ schedule = (1...users.size).map do |r|
     end
   end
 end
+
 end
