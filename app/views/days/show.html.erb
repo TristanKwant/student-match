@@ -15,6 +15,12 @@
 <h2><%= @day.todaymatch %></h2>
 
 <h2><%= @day.datematch %></h2>
+<ul>
+  <% @day.todaymatch.each do |match| %>
+  <li><%= User.find_by(id: match.first).email %> - <%= User.find_by(id: match.last).email %></li>
+  <% end %>
+</ul>
+
 <%else%>
 <h1>no acces</h1>
 <%end%>

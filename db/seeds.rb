@@ -18,7 +18,7 @@ user7 = User.create!(email: "3@student.com", password: "123456")
 user8 = User.create!(email: "4@student.com", password: "123456")
 user9 = User.create!(email: "5@student.com", password: "123456")
 user10 = User.create!(email: "6@student.com", password: "123456")
-user11 = User.create!(email: "7@student.com", password: "123456")
+
 
 match1 = Match.create!(matchlist: [])
 
