@@ -4,7 +4,7 @@
 
     <% @users.sort.each do |user|  %>
       <li ><%= user.email %>
-        <select id="<%="#{user.id}"%>" class="user <%="#{user.id}"%>" name:"user">
+        <select id="<%= user.id%>" class="user" name:"user">
 
           <% if user.admin %>
               <option value="true">admin</option>
@@ -24,10 +24,6 @@
 
     <% end %>
   </ul>
-
-  <%= button_to "generate", @users.match_begin , class: "btn btn-default" %>
-
-
 <% else %>
   <h1>No acces</h1>
 <% end %>
