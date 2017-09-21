@@ -12,7 +12,8 @@
 <% end %>
 
 
-<!--sorry, din't work as planned, will update  -->
 <ul>
-  <%= @day.errors.first[1] %>
+  <% @day.errors.each do |attr, msg| %>
+    <li><%= msg %></li>
+  <% end %>
 </ul>
