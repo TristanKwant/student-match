@@ -50,6 +50,6 @@ class DaysController < ApplicationController
   private
 
   def day_params
-    params.require(:day).permit(:matchdate, :datematch)
+    params.require(:day).permit(:datematch)
   end
 end

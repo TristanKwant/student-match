@@ -21,3 +21,5 @@ user10 = User.create!(email: "6@student.com", password: "123456")
 
 
 match1 = Match.create!(matchlist: [])
+
+day1 = Day.create!(matchdate: "01-01-2017")
