@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :matches
+  has_one :profile
 
 
 
@@ -13,7 +14,7 @@ class User < ApplicationRecord
     order(id: :desc)
   end
 
-  
+
 
 
 end
