@@ -22,7 +22,7 @@ describe "Current user viewing the list of rooms" do
     login_as student
     visit users_path
 
-    expect(page).to have_text("admin@user.com")
+    expect(page).to have_no_text("admin@user.com")
     expect(page).to have_text("student@user.com")
   end
 

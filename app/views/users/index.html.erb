@@ -4,7 +4,7 @@
 
     <% @users.sort.each do |user|  %>
       <li ><%= user.email %>
-        <select id="<%="#{user.id}"%>" class="user" name:"user">
+        <select id="<%="#{user.id}"%>" class="user <%="#{user.id}"%>" name:"user">
 
           <% if user.admin %>
               <option value="true">admin</option>
