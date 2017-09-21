@@ -4,4 +4,16 @@ class MatchesController < ApplicationController
   def show
     @matches = current_user.matches
   end
+
+  def update
+    @match.update(match_params)
+  end
+
+
+
+  private
+
+  def match_params
+    params.require(:match).permit(:matchlist)
+  end
 end
