@@ -27,3 +27,23 @@ margin: 0 auto;
 .user-list select {
   float: right;
 }
+
+.matches {
+  list-style-type: none;
+  text-align: center;
+}
+
+.matches li {
+overflow: hidden;
+padding-left: 100px ;
+padding-right: 100px ;
+}
+.left {
+  float: left;
+
+}
+
+.right {
+
+  float: right;
+}

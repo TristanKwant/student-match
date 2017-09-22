@@ -1,8 +1,8 @@
 <% if current_user.admin  %>
 
-  <div class="users-container">
+  <div class="users-container">p
     <h1>Users</h1>
-    <ul class="user-list">
+    <ul class="user-list admin-list">
 
       <% @users.sort.each do |user|  %>
       <% if user.admin %>
@@ -22,7 +22,7 @@
       <% end %>
     </ul>
     <hr>
-    <ul class="user-list">
+    <ul class="user-list student-list">
 
       <% @users.sort.each do |user|  %>
         <% if !user.admin %>
