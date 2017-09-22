@@ -1,0 +1,9 @@
+<h2>Create your profile!</h2>
+
+<%= render 'form' %>
+
+<ul>
+  <% @profile.errors.each do |attr, msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
