@@ -10,7 +10,7 @@
   <% end %>
 </ul>
 
-<h2><%= @day.todaymatch %></h2>
+
 
 <h2><%= @day.datematch %></h2>
 <ul>
@@ -19,14 +19,15 @@
   <% end %>
 </ul>
 
-<%else%>
+<%elsif @day.datematch <= Date.today %>
 <ul class="day-list">
 
   <% @days.sort_lastest_date.each do |day|  %>
-    <li>
-      <%#= day.datematch %>
-      <%= link_to day.datematch, day, class: "btn btn-default" %>
-    </li>
+   <% if day.datematch <= Date.today %>
+      <li>
+        <%= link_to day.datematch, day, class: "btn btn-default" %>
+      </li>
+    <% end %>
 
 
 
@@ -40,4 +41,6 @@
     <% end %>
   <% end %>
 </ul>
+<% else %>
+<h1>no acces</h1>
 <%end%>
