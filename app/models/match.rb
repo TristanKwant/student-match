@@ -5,7 +5,7 @@ class Match < ApplicationRecord
     users = User.all.where(admin: false).ids.shuffle
     users.push(nil) if users.size.odd?
     n = users.size
-    steady = users.pop
+    steady = users.shift
     matches = (n-1).times.map do
       users.rotate!
       [[users.first, steady]] + (1...(n/2)).map { |m| [users[m], users[n-1-m]]}
