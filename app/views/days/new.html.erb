@@ -3,7 +3,8 @@
 <%= form_for @day do |f| %>
   <div class="form-group">
     <%= f.label :datematch %>
-    <%= f.text_field :datematch, type: "date" %>
+    <%= f.date_select :datematch%>
+
 
   </div>
   <div class="actions">
