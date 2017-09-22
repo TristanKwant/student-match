@@ -1,3 +1,49 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-list {
+  list-style-type: none;
+  font-size: 18px;
+  padding: 0;
+}
+
+.user-list li {
+  padding: 5px 0 5px 5px;
+
+}
+
+.user-list li:nth-child(odd) {
+  background-color: rgba(0,0,0,0.1);
+  color: black;
+
+}
+
+.users-container {
+  // width: 60%;
+margin: 0 auto;
+}
+
+.user-list select {
+  float: right;
+}
+
+.matches {
+  list-style-type: none;
+  text-align: center;
+}
+
+.matches li {
+overflow: hidden;
+padding-left: 100px ;
+padding-right: 100px ;
+}
+.left {
+  float: left;
+
+}
+
+.right {
+
+  float: right;
+}

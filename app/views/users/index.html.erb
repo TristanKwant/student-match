@@ -1,29 +1,47 @@
 <% if current_user.admin  %>
-  <h1>Users</h1>
-  <ul>
 
-    <% @users.sort.each do |user|  %>
-      <li ><%= user.email %>
+  <div class="users-container">p
+    <h1>Users</h1>
+    <ul class="user-list admin-list">
+
+      <% @users.sort.each do |user|  %>
+      <% if user.admin %>
+        <li ><%= user.email %>
         <select id="<%= user.id%>" class="user" name:"user">
 
-          <% if user.admin %>
-              <option value="true">admin</option>
-              <option value="false">student</option>
-            <% else %>
-              <option value="false">student</option>
-              <option value="true">admin</option>
-          <% end %>
 
-
+          <option value="true">admin</option>
+          <option value="false">student</option>
 
         </select>
-        <p><%#= user.admin %></p>
+
+      </li>
+        <% end %>
+
+
+      <% end %>
+    </ul>
+    <hr>
+    <ul class="user-list student-list">
+
+      <% @users.sort.each do |user|  %>
+        <% if !user.admin %>
+        <li ><%= user.email %>
+          <select id="<%= user.id%>" class="user" name:"user">
+
+
+            <option value="false">student</option>
+            <option value="true">admin</option>
+
+          </select>
+
       </li>
 
 
-
-    <% end %>
-  </ul>
+       <% end %>
+      <% end %>
+    </ul>
+  </div>
 <% else %>
   <h1>No acces</h1>
 <% end %>

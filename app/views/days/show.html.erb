@@ -1,21 +1,25 @@
 <% if current_user.admin  %>
-<ul class="day-list">
-  <%= link_to "Add new day", new_day_path, class: "btn btn-primary" %>
-  <% @days.sort_lastest_date.each do |day|  %>
+<div class="day-list-container">
+
+  <ul class="day-list">
+    <%= link_to "Add new day", new_day_path, class: "btn btn-primary" %>
+    <% @days.sort_lastest_date.each do |day|  %>
     <li>
       <%#= day.datematch %>
       <%= link_to day.datematch, day, class: "btn btn-default" %>
     </li>
 
-  <% end %>
-</ul>
+    <% end %>
+  </ul>
+</div>
+
 
 
 
 <h2><%= @day.datematch %></h2>
-<ul>
+<ul class="matches user-list">
   <% @day.todaymatch.each do |match| %>
-  <li><%= User.find_by(id: match.first).email unless User.find_by(id: match.first).blank?  %> - <%= User.find_by(id: match.last).email unless User.find_by(id: match.first).blank?  %></li>
+  <li><span class="left"><%= User.find_by(id: match.first).email unless User.find_by(id: match.first).blank?  %></span> <span class="right"><%= User.find_by(id: match.last).email unless User.find_by(id: match.first).blank?  %></span> </li>
   <% end %>
 </ul>
 

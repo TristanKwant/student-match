@@ -1,6 +1,9 @@
 <% if current_user.admin  %>
-<h1>Make a match for a day</h1>
-<%= link_to "New match", new_day_path, class: "btn btn-primary" %>
+<div class="new-match-container">
+  <h1>Make a match for a day</h1>
+  <%= link_to "New match", new_day_path, class: "btn btn-primary new-match-btn" %>
+</div>
+
 <hr>
 <ul class="day-list">
 
@@ -14,26 +17,37 @@
   <% else %>
 
 
-  <% @days.sort_lastest_date.each do |day|  %>
+  <!-- <% @days.sort_lastest_date.each do |day|  %>
    <% if day.datematch = Date.today %>
         <% @thisday = day %>
     <% end %>
-    <% end %>
+    <% end %> -->
+    <ul class="day-list">
 
-
-
-  <ul>
-  <% @thisday.todaymatch.each do |match| %>
-    <% if match.first.to_i == current_user.id || match.last.to_i == current_user.id %>
-      <% match.each do |m| %>
-        <% if m.to_i != current_user.id %>
-          <h1>Today's Match: </h1>
-          <h2><%= User.find_by(id: m).has_profile? ? User.find_by(id: m).full_name : User.find_by(id: m).email %></h2>
+      <% @days.sort_lastest_date.each do |day|  %>
+       <% if day.datematch <= Date.today %>
+          <li>
+            <%= link_to day.datematch, day, class: "btn btn-default" %>
+          </li>
         <% end %>
       <% end %>
+    </ul>
+
+<div class="match-ofday">
+
+  <ul >
+    <% @thisday.todaymatch.each do |match| %>
+    <% if match.first.to_i == current_user.id || match.last.to_i == current_user.id %>
+    <% match.each do |m| %>
+    <% if m.to_i != current_user.id %>
+    <h1>Today's Match: </h1>
+    <h2><%= User.find_by(id: m).has_profile? ? User.find_by(id: m).full_name : User.find_by(id: m).email %></h2>
     <% end %>
-  <% end %>
-</ul>
+    <% end %>
+    <% end %>
+    <% end %>
+  </ul>
+</div>
 
 
 <% end %>

@@ -11,11 +11,9 @@ xhr.setRequestHeader("Content-Type", "application/json");
 xhr.send(JSON.stringify({admin:this.value}));
 
 
-var id = document.getElementById(this.id);
-id.nextElementSibling.innerHTML = this.value;
 
-console.log(p)
 
+        $(".admin-list").append($(this).parent());
 
 
 }
