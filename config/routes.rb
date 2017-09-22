@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :matches
   end
 
+  resources :profiles, only: [:new, :edit, :create, :update]
+
   resources :days
 
   namespace :api do
