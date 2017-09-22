@@ -8,8 +8,9 @@
         <span class="icon-bar"></span>
       </button>
       <%  if current_user.try(:admin?)  %>
-      <%= link_to "Student Matcher", users_path, class: "navbar-brand" %>
-      <%= link_to "day", day_url(1), class: "navbar-brand" %>
+      <%= link_to "Student Matcher", days_path, class: "navbar-brand" %>
+      <%= link_to "days", days_path, class: "navbar-brand" %>
+      <%= link_to "Users", users_path, class: "navbar-brand" %>
       <% else %>
         <%= link_to "Student Matcher", root_path, class: "navbar-brand" %>
       <% end %>

@@ -1,7 +1,7 @@
 class Day < ApplicationRecord
   validates :datematch, uniqueness: {message: 'This day is already made'}
 
-  # validate :day_cannot_be_in_past
+  validate :day_cannot_be_in_past
 
 def day_cannot_be_in_past
   errors.add(:datematch, "You cannot make days in the past") if
@@ -17,7 +17,7 @@ end
 
 
   def show_match
-
+  
   end
 
 

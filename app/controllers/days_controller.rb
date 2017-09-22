@@ -5,20 +5,17 @@ class DaysController < ApplicationController
     @days = Day.all
 
   end
+  def index
+  
+    @days = Day.all
+
+  end
 
   def new
     @day = Day.new
   end
 
   def create
-    # @day = Day.new(day_params)
-      # match = Match.first
-      # todaymatch = match.matchlist.shift
-      # testing = "1"
-      # @day = Day.new(day_params)
-      # @day.todaymatch = ["test"]
-
-
 
     if Match.first.matchlist.empty?
       match = Match.first
