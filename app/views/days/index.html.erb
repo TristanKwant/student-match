@@ -1,6 +1,9 @@
 <% if current_user.admin  %>
-<h1>Make a match for a day</h1>
-<%= link_to "New match", new_day_path, class: "btn btn-primary" %>
+<div class="new-match-container">
+  <h1>Make a match for a day</h1>
+  <%= link_to "New match", new_day_path, class: "btn btn-primary new-match-btn" %>
+</div>
+
 <hr>
 <ul class="day-list">
 
